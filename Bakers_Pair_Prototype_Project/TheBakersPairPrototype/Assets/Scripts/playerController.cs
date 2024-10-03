@@ -33,7 +33,10 @@ public class playerController : MonoBehaviour
             Vector3 force = new Vector3(thrust, 0.0f, 0.0f);
             //if (rightOnceCheck)
             //{
-                towerObj.GetComponent<Rigidbody>().velocity = force;
+            foreach (Transform child in towerObj.transform)
+            {
+                child.gameObject.GetComponent<Rigidbody>().velocity = force;
+            }
                 //towerObj.GetComponent<Rigidbody>().AddForce(force);
            // }
             rightOnceCheck = false;
@@ -50,8 +53,10 @@ public class playerController : MonoBehaviour
             Vector3 force = new Vector3(-thrust, 0.0f, 0.0f);
             //if (leftOnceCheck)
             //{
-                towerObj.GetComponent<Rigidbody>().velocity = force;
-                //towerObj.GetComponent<Rigidbody>().AddForce(force);
+            foreach (Transform child in towerObj.transform)
+            {
+                child.gameObject.GetComponent<Rigidbody>().velocity = force;
+            }                //towerObj.GetComponent<Rigidbody>().AddForce(force);
             //}
             leftOnceCheck = false;
         }

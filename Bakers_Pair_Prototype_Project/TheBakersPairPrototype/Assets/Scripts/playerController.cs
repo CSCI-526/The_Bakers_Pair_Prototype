@@ -4,30 +4,73 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
+    public GameObject towerObj;
+
+    public float moveSpeed = 5f;
+    public float minX = -10f;      // Minimum X value (left boundary)
+    public float maxX = 10f;       // Maximum X value (right boundary)
+    public float thrust = 20.0f;
+
+    private bool rightOnceCheck = true;
+    private bool leftOnceCheck = true;
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
-    public float moveSpeed = 5f;
-    public float minX = -10f;      // Minimum X value (left boundary)
-    public float maxX = 10f;       // Maximum X value (right boundary)
+
     // Update is called once per frame
     void Update()
     {
-         // Get horizontal input from the user (A/D keys or Left/Right arrow keys)
-        float inputX = Input.GetAxis("Horizontal");
-
         // Create a movement vector only along the X-axis
-        Vector3 movement = new Vector3(inputX, 0f, 0f);
+        Vector3 movement = new Vector3(1.0f, 0f, 0f);
 
-        // Move the platform along the X-axis based on input and speed
-        transform.Translate(movement * moveSpeed * Time.deltaTime);
+        if (Input.GetKey(KeyCode.D))
+        {
+            this.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
+            transform.Translate(movement * moveSpeed * Time.deltaTime);
+            Vector3 force = new Vector3(thrust, 0.0f, 0.0f);
+            //if (rightOnceCheck)
+            //{
+                towerObj.GetComponent<Rigidbody>().velocity = force;
+                //towerObj.GetComponent<Rigidbody>().AddForce(force);
+           // }
+            rightOnceCheck = false;
+        }
+        if(Input.GetKeyUp(KeyCode.D)) 
+        {
+            rightOnceCheck = true;
+        }
 
-        // Clamp the platform's position between minX and maxX
-        float clampedX = Mathf.Clamp(transform.position.x, minX, maxX);
+        if (Input.GetKey(KeyCode.A))
+        {
+            this.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
+            transform.Translate(-1.0f * movement * moveSpeed * Time.deltaTime);
+            Vector3 force = new Vector3(-thrust, 0.0f, 0.0f);
+            //if (leftOnceCheck)
+            //{
+                towerObj.GetComponent<Rigidbody>().velocity = force;
+                //towerObj.GetComponent<Rigidbody>().AddForce(force);
+            //}
+            leftOnceCheck = false;
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            leftOnceCheck = true;
+        }
 
-        // Apply the clamped X position back to the platform's transform
-        transform.position = new Vector3(clampedX, transform.position.y, transform.position.z);
+        if(transform.position.x < -6.0f)
+        {
+            transform.position = new Vector3(-6.0f, transform.position.y, transform.position.z);
+        }
+
+        if (transform.position.x > 6.0f)
+        {
+            transform.position = new Vector3(6.0f, transform.position.y, transform.position.z);
+        }
+
+        this.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
+
     }
 }

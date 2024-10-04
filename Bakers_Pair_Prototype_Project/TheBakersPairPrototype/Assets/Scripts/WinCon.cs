@@ -4,26 +4,36 @@ using UnityEngine;
 
 public class WinCon : MonoBehaviour
 {
-    public GameObject tower;
+    public GameObject tower;          // Reference to the tower (parent object)
+    public GameObject victoryUI;      // Reference to the victory UI
+    public float topOfScreenY = -2f;   // Y-coordinate that represents the top of the screen
 
-    public GameObject victoryUI;
-    // Start is called before the first frame update
     void Start()
     {
-        
+        victoryUI.SetActive(false);   // Ensure the win UI is hidden at the start
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        CheckTowerHeight();           // Continuously check if the tower has reached the top
     }
 
-    private void OnTriggerEnter(Collider collision)
+    void CheckTowerHeight()
     {
-        if (collision.gameObject.transform.IsChildOf(tower.transform))
+        // Get the highest block's Y-position in the tower (assuming blocks are children of the tower)
+        foreach (Transform block in tower.transform)
         {
-            victoryUI.SetActive(true);
+            if (block.position.y >= topOfScreenY)
+            {
+                ShowWinUI();
+                break;
+            }
         }
+    }
+
+    void ShowWinUI()
+    {
+        victoryUI.SetActive(true);     // Display the win UI when the tower reaches the top
+        // Additional logic for winning (e.g., stopping the game) can be added here
     }
 }

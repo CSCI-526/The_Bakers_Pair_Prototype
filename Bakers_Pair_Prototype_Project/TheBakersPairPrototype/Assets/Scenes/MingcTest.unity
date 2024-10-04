@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657886, g: 0.49641275, b: 0.5748176, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -218,6 +218,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 499521451}
+  - component: {fileID: 499521452}
+  - component: {fileID: 499521454}
+  - component: {fileID: 499521455}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -246,6 +249,65 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &499521452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499521450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9141e58d9cb924d669ac26965efe7739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceThreshold: 0.5
+  alignmentThreshold: 0.9
+  playerPlatform: {fileID: 1856032508}
+  solidFallingBox: {fileID: 6702910317585714695, guid: 3e8cc2b61f90c4b44a5beca7a5a46b4b, type: 3}
+  snapHeight: 0.5
+--- !u!54 &499521454
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499521450}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!138 &499521455
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499521450}
+  m_ConnectedBody: {fileID: 6944543742562827486, guid: 2d9d93826d07b4d92b25561f8d0b7a17, type: 3}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!4 &655645589 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4911509864591921823, guid: b4f160e6220994ccc9ca38bb1be014db, type: 3}
@@ -429,11 +491,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4911509864591921823, guid: b4f160e6220994ccc9ca38bb1be014db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.09
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4911509864591921823, guid: b4f160e6220994ccc9ca38bb1be014db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.22
+      value: 11.4
       objectReference: {fileID: 0}
     - target: {fileID: 4911509864591921823, guid: b4f160e6220994ccc9ca38bb1be014db, type: 3}
       propertyPath: m_LocalPosition.z
@@ -596,7 +658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4911509864591921823, guid: b4f160e6220994ccc9ca38bb1be014db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.32
+      value: -0.61
       objectReference: {fileID: 0}
     - target: {fileID: 4911509864591921823, guid: b4f160e6220994ccc9ca38bb1be014db, type: 3}
       propertyPath: m_LocalPosition.y
@@ -798,6 +860,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4f160e6220994ccc9ca38bb1be014db, type: 3}
+--- !u!1 &1856032508 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5779355568149420693, guid: 2d9d93826d07b4d92b25561f8d0b7a17, type: 3}
+  m_PrefabInstance: {fileID: 1850210723407858883}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1856032515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856032508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9141e58d9cb924d669ac26965efe7739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceThreshold: 0.5
+  alignmentThreshold: 0.9
+  playerPlatform: {fileID: 1856032508}
+  solidFallingBox: {fileID: 6702910317585714695, guid: 3e8cc2b61f90c4b44a5beca7a5a46b4b, type: 3}
+  snapHeight: 0.5
 --- !u!1001 &1850210723407858883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -866,6 +950,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 6944543742562827486, guid: 2d9d93826d07b4d92b25561f8d0b7a17, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7147786705530155784, guid: 2d9d93826d07b4d92b25561f8d0b7a17, type: 3}
       propertyPath: m_Material
       value: 
@@ -873,5 +961,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5779355568149420693, guid: 2d9d93826d07b4d92b25561f8d0b7a17, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1856032515}
   m_SourcePrefab: {fileID: 100100000, guid: 2d9d93826d07b4d92b25561f8d0b7a17, type: 3}

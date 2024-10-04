@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4266017038735282650}
   - component: {fileID: 1277803153676050008}
   - component: {fileID: 1573899951418424160}
+  - component: {fileID: 5758916403676870012}
+  - component: {fileID: 234557271163507919}
   m_Layer: 0
   m_Name: FallingCircle
   m_TagString: Untagged
@@ -133,3 +135,29 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5758916403676870012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6702910317585714695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 489dba725999d4bdab7f81b19049f991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bottomY: -8
+--- !u!114 &234557271163507919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6702910317585714695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aff08bace063949d2a0929c195de7819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerObj: {fileID: 0}

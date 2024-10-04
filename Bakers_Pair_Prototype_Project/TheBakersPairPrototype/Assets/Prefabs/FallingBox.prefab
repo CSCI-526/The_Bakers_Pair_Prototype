@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4266017038735282650}
   - component: {fileID: 6693655293785642091}
   - component: {fileID: 1277803153676050008}
+  - component: {fileID: -7156864529720202577}
+  - component: {fileID: 2425845854021549038}
   m_Layer: 0
   m_Name: FallingBox
   m_TagString: Untagged
@@ -133,3 +135,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &-7156864529720202577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6702910317585714695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 489dba725999d4bdab7f81b19049f991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bottomY: -8
+--- !u!114 &2425845854021549038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6702910317585714695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aff08bace063949d2a0929c195de7819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerObj: {fileID: 0}

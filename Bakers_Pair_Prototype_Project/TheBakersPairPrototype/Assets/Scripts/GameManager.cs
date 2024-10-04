@@ -1,15 +1,16 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI; // Import this to use UI elements
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public WinCon winCon; // Reference to the WinCon script
     public LoseCon loseCon; // Reference to the LoseCon script
-    public Text timerText; // Reference to the Timer Text UI element
+    public TMP_Text timerText; // Reference to the Timer Text UI element
 
     private float timerDuration = 60f; // 1 minute timer
-    private float timer; // Timer variable
+    private float timer = 60.0f; // Timer variable
 
     void Start()
     {

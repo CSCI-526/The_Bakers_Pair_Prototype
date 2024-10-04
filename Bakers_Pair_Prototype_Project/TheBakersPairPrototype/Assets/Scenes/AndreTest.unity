@@ -255,7 +255,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -131, y: -39}
+  m_AnchoredPosition: {x: -131, y: -150}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &499521450
@@ -910,6 +910,10 @@ PrefabInstance:
       propertyPath: loseCon
       value: 
       objectReference: {fileID: 1190216560}
+    - target: {fileID: 4396225890139800138, guid: 69df14311c897420e9bc0a52095ae646, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 161256771}
     - target: {fileID: 9156238414408404748, guid: 69df14311c897420e9bc0a52095ae646, type: 3}
       propertyPath: m_RootOrder
       value: 5

@@ -7,8 +7,10 @@ public class WinCon : MonoBehaviour
         public GameObject tower;
 
         public GameObject victoryUI;
-        // Start is called before the first frame update
-        void Start()
+        public GameObject loseUI;               // Reference to the "You Lose" UI
+
+    // Start is called before the first frame update
+    void Start()
         {
 
         }
@@ -21,7 +23,7 @@ public class WinCon : MonoBehaviour
 
         private void OnTriggerEnter(Collider collision)
         {
-            if (collision.gameObject.transform.IsChildOf(tower.transform))
+            if (collision.gameObject.transform.IsChildOf(tower.transform) && !loseUI.activeSelf)
             {
                 victoryUI.SetActive(true);
             }

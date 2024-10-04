@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/AndreTest.unity
+    guid: 2cb026fd50e3740c1936d2e144658b5a
   m_configObjects: {}

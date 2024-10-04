@@ -5,6 +5,7 @@ using TMPro; // Import TextMeshPro namespace
 public class LoseCon : MonoBehaviour
 {
     public GameObject loseUI;               // Reference to the "You Lose" UI
+    public GameObject winUI;
     public TextMeshProUGUI timerText;       // Reference to the UI Text element for displaying the timer (TextMeshPro)
     public float gameDuration = 60f;        // Game duration in seconds
     private float timer;
@@ -47,13 +48,18 @@ public class LoseCon : MonoBehaviour
 
     void ShowLoseUI()
     {
-        loseUI.SetActive(true);               // Show the "You Lose" UI
-        // Additional logic for losing (like stopping the game) can be added here
+        if (!winUI.activeSelf)
+        {
+            loseUI.SetActive(true);               // Show the "You Lose" UI
+        }
     }
 
     // Method to display lose UI manually (optional, can be triggered from other scripts)
     public void DisplayLoseUI()
     {
-        loseUI.SetActive(true);               // Activate the lose UI
+        if (!winUI.activeSelf)
+        {
+            loseUI.SetActive(true);               // Show the "You Lose" UI
+        }
     }
 }
